@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuite errors="0" failures="0" name="unittest.suite.TestSuite" tests="1" time="15.016"><testcase classname="rostest.runner.RosTest" name="testmotor_test" time="15.0159" /><system-out>&lt;![CDATA[
+[ROSTEST]setup[/home/ubuntu/catkin_ws/src/yehuh_mouse/test/motor.test] run_id[e2a165a4-50fc-11eb-bc0d-b827eb92b46f] starting
+&amp;#x001B;[1mstarted roslaunch server http://localhost:45197/&amp;#x001B;[0m
+
+SUMMARY
+========
+
+PARAMETERS
+ * /rosdistro: melodic
+ * /rosversion: 1.14.9
+
+NODES
+
+[ROSTEST]setup[/home/ubuntu/catkin_ws/src/yehuh_mouse/test/motor.test] run_id[e2a165a4-50fc-11eb-bc0d-b827eb92b46f] done
+[ROSTEST]Running test [motor_test]
+&amp;#x001B;[1mROS_MASTER_URI=http://localhost:44011/&amp;#x001B;[0m
+&amp;#x001B;[1msetting /run_id to e2a165a4-50fc-11eb-bc0d-b827eb92b46f&amp;#x001B;[0m
+[ROSTEST]running test motor_test
+&amp;#x001B;[1mprocess[motor_test-1]: started with pid [8289]&amp;#x001B;[0m
+&amp;#x001B;[1m[motor_test-1] process has finished cleanly
+log file: /home/ubuntu/.ros/log/e2a165a4-50fc-11eb-bc0d-b827eb92b46f/motor_test-1*.log&amp;#x001B;[0m
+[ROSTEST]test [motor_test] finished
+[ROSTEST]test [motor_test] results are in [/home/ubuntu/catkin_ws/build/test_results/yehuh_mouse/rosunit-motor_test.xml]
+[ROSTEST]test [motor_test] results summary: 0 errors, 0 failures, 2 tests
+[ROSTEST][ROSTEST] test [motor_test] done
+[ROSTEST]tearDown[/home/ubuntu/catkin_ws/src/yehuh_mouse/test/motor.test]
+shutting down processing monitor...
+... shutting down processing monitor complete
+[ROSTEST]rostest teardown /home/ubuntu/catkin_ws/src/yehuh_mouse/test/motor.test complete
+
+]]&gt;</system-out><system-err>&lt;![CDATA[
+
+]]&gt;</system-err></testsuite>

@@ -1,0 +1,179 @@
+{
+	"version": "0.1.0",
+	"command": "bash",
+	"args": [
+		"-c"
+	],
+	"isShellCommand": true,
+	"showOutput": "always",
+	"suppressTaskName": true,
+	"tasks": [
+		{
+			"taskName": "Debug",
+			"args": [
+				"source /opt/ros/kinetic/setup.bash; catkin_make -C ${workspaceRoot} -DCMAKE_BUILD_TYPE=Debug"
+			],
+			"problemMatcher": {
+				"owner": "cpp",
+				"fileLocation": [
+					"absolute"
+				],
+				"pattern": {
+					"regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+					"file": 1,
+					"line": 2,
+					"column": 3,
+					"severity": 4,
+					"message": 5
+				}
+			},
+			"isBuildCommand": true
+		},
+		{
+			"taskName": "Release",
+			"args": [
+				"source /opt/ros/kinetic/setup.bash; catkin_make -C ${workspaceRoot}"
+			],
+			"problemMatcher": {
+				"owner": "cpp",
+				"fileLocation": [
+					"absolute"
+				],
+				"pattern": {
+					"regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+					"file": 1,
+					"line": 2,
+					"column": 3,
+					"severity": 4,
+					"message": 5
+				}
+			}
+		},
+		{
+			"taskName": "Debug (isolated)",
+			"args": [
+				"source /opt/ros/kinetic/setup.bash; catkin_make_isolated -C ${workspaceRoot} -DCMAKE_BUILD_TYPE=Debug"
+			],
+			"problemMatcher": {
+				"owner": "cpp",
+				"fileLocation": [
+					"absolute"
+				],
+				"pattern": {
+					"regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+					"file": 1,
+					"line": 2,
+					"column": 3,
+					"severity": 4,
+					"message": 5
+				}
+			}
+		},
+		{
+			"taskName": "Release (isolated)",
+			"args": [
+				"source /opt/ros/kinetic/setup.bash; catkin_make_isolated -C ${workspaceRoot}"
+			],
+			"problemMatcher": {
+				"owner": "cpp",
+				"fileLocation": [
+					"absolute"
+				],
+				"pattern": {
+					"regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+					"file": 1,
+					"line": 2,
+					"column": 3,
+					"severity": 4,
+					"message": 5
+				}
+			}
+		},
+		{
+			"taskName": "Debug (remote)",
+			"args": [
+				"ssh ubuntu@192.168.0.6 'echo -e \"#!/bin/bash --login\\nsource /opt/ros/melodic/setup.bash \\ncatkin_make -C /home/ubuntu/catkin_ws_test -DCMAKE_BUILD_TYPE=Debug\" > /tmp/roswstmp.sh; chmod 755 /tmp/roswstmp.sh; /tmp/roswstmp.sh'"
+			],
+			"problemMatcher": {
+				"owner": "cpp",
+				"fileLocation": [
+					"absolute"
+				],
+				"pattern": {
+					"regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+					"file": 1,
+					"line": 2,
+					"column": 3,
+					"severity": 4,
+					"message": 5
+				}
+			}
+		},
+		{
+			"taskName": "Release (remote)",
+			"args": [
+				"ssh ubuntu@192.168.0.6 'echo -e \"#!/bin/bash --login\\nsource /opt/ros/melodic/setup.bash \\ncatkin_make -C /home/ubuntu/catkin_ws_test\" > /tmp/roswstmp.sh; chmod 755 /tmp/roswstmp.sh; /tmp/roswstmp.sh'"
+			],
+			"problemMatcher": {
+				"owner": "cpp",
+				"fileLocation": [
+					"absolute"
+				],
+				"pattern": {
+					"regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+					"file": 1,
+					"line": 2,
+					"column": 3,
+					"severity": 4,
+					"message": 5
+				}
+			}
+		},
+		{
+			"taskName": "Debug (remote isolated)",
+			"args": [
+				"ssh ubuntu@192.168.0.6 'echo -e \"#!/bin/bash --login\\ncatkin_make_isolated -C /home/ubuntu/catkin_ws_test -DCMAKE_BUILD_TYPE=Debug\" > /tmp/roswstmp.sh; chmod 755 /tmp/roswstmp.sh; /tmp/roswstmp.sh'"
+			],
+			"problemMatcher": {
+				"owner": "cpp",
+				"fileLocation": [
+					"absolute"
+				],
+				"pattern": {
+					"regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+					"file": 1,
+					"line": 2,
+					"column": 3,
+					"severity": 4,
+					"message": 5
+				}
+			}
+		},
+		{
+			"taskName": "Release (remote isolated)",
+			"args": [
+				"ssh ubuntu@192.168.0.6 'echo -e \"#!/bin/bash --login\\ncatkin_make_isolated -C /home/ubuntu/catkin_ws_test\" > /tmp/roswstmp.sh; chmod 755 /tmp/roswstmp.sh; /tmp/roswstmp.sh'"
+			],
+			"problemMatcher": {
+				"owner": "cpp",
+				"fileLocation": [
+					"absolute"
+				],
+				"pattern": {
+					"regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+					"file": 1,
+					"line": 2,
+					"column": 3,
+					"severity": 4,
+					"message": 5
+				}
+			}
+		},
+		{
+			"taskName": "Remote Deploy",
+			"args": [
+				"ssh ubuntu@192.168.0.6 'rm -rf /home/ubuntu/catkin_ws_test; mkdir /home/ubuntu/catkin_ws_test'; scp -r ${workspaceRoot}/src ubuntu@192.168.0.6:/home/ubuntu/catkin_ws_test/src; ssh ubuntu@192.168.0.6 'rm /home/ubuntu/catkin_ws_test/src/CMakeLists.txt; echo -e \"#!/bin/bash --login\\nsource /opt/ros/melodic/setup.bash \\ncatkin_init_workspace /home/ubuntu/catkin_ws_test/src\" > /tmp/roswstmp.sh; chmod 755 /tmp/roswstmp.sh; /tmp/roswstmp.sh'; echo \"Deploy Finished!\""
+			]
+		}
+	]
+}
